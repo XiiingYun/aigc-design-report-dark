@@ -8,9 +8,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
-  --bg: #08081A;
-  --bg-mid: #0E0B22;
-  --bg-deep: #150F30;
+  --bg: #000000;
+  --bg-mid: #000000;
+  --bg-deep: #000000;
   --glass: rgba(255,255,255,0.04);
   --glass-border: rgba(255,255,255,0.08);
   --glass-hover: rgba(255,255,255,0.08);
@@ -25,6 +25,13 @@
   --text-light: #5A5570;
   --glow-purple: rgba(123,104,174,0.25);
   --glow-blue: rgba(80,120,255,0.15);
+  /* emphasis colors */
+  --hl-green: #00E676;
+  --hl-pink: #FF4DA6;
+  --hl-lime: #C6FF00;
+  --hl-blue: #40C4FF;
+  --hl-orange: #FF9100;
+  --hl-cyan: #18FFFF;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -38,14 +45,10 @@ body {
   position:relative;
 }
 
-/* ===== GLOBAL BACKGROUND GRADIENT + AMBIENT GLOW ===== */
+/* ===== GLOBAL BACKGROUND — PURE BLACK ===== */
 body::before {
   content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(ellipse 800px 600px at 15% 20%, rgba(123,104,174,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 600px 500px at 85% 30%, rgba(80,120,255,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 900px 700px at 50% 70%, rgba(100,60,180,0.07) 0%, transparent 70%),
-    linear-gradient(180deg, #08081A 0%, #0E0B22 40%, #150F30 80%, #0E0B22 100%);
+  background:#000000;
 }
 body::after {
   content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
@@ -56,7 +59,7 @@ body::after {
 
 /* ===== LOADER ===== */
 #loader {
-  position:fixed; inset:0; background:var(--bg); z-index:9999;
+  position:fixed; inset:0; background:#000; z-index:9999;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   transition:opacity 1.2s ease, visibility 1.2s;
 }
@@ -83,12 +86,12 @@ body::after {
 .nav {
   position:fixed; top:0; left:0; right:0; z-index:100;
   padding:20px 40px; display:flex; justify-content:space-between; align-items:center;
-  background:rgba(8,8,26,0.6);
+  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(24px) saturate(1.2);
   border-bottom:1px solid rgba(255,255,255,0.04);
   transition:all 0.4s;
 }
-.nav.scrolled { background:rgba(8,8,26,0.85); border-bottom-color:rgba(255,255,255,0.06); }
+.nav.scrolled { background:rgba(0,0,0,0.85); border-bottom-color:rgba(255,255,255,0.06); }
 .nav-left { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px; color:var(--text-dim); }
 .nav-left span { color:var(--text); font-weight:700; }
 .nav-right { display:flex; gap:28px; }
@@ -112,8 +115,8 @@ body::after {
 .hero::before {
   content:''; position:absolute; inset:0; z-index:1;
   background:
-    linear-gradient(90deg, rgba(8,8,26,0.95) 0%, rgba(8,8,26,0.8) 35%, rgba(8,8,26,0.3) 55%, transparent 70%),
-    linear-gradient(180deg, rgba(8,8,26,0.4) 0%, transparent 30%, transparent 70%, rgba(8,8,26,0.9) 100%);
+    linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.25) 55%, transparent 70%),
+    linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.9) 100%);
 }
 .hero-content-wrap {
   position:relative; z-index:3;
@@ -280,7 +283,7 @@ body::after {
 .workflow-step::before {
   content:''; position:absolute; top:-28px; left:50%; transform:translateX(-50%);
   width:24px; height:24px;
-  background:var(--bg);
+  background:#000;
   border:3px solid var(--accent);
   border-radius:50%;
   box-shadow:0 0 20px rgba(123,104,174,0.3), 0 0 0 4px rgba(123,104,174,0.1);
@@ -323,7 +326,7 @@ body::after {
 }
 .gallery-card .gal-expand-hint {
   position:absolute; bottom:12px; right:12px;
-  background:rgba(8,8,26,0.6); color:#fff; border-radius:100px;
+  background:rgba(0,0,0,0.6); color:#fff; border-radius:100px;
   padding:6px 14px; font-size:11px; display:flex; align-items:center; gap:4px;
   font-family:'JetBrains Mono',monospace; backdrop-filter:blur(8px);
   border:1px solid rgba(255,255,255,0.08);
@@ -351,7 +354,7 @@ body::after {
 .img-item:hover img { transform:scale(1.08); filter:brightness(1); }
 .img-item .img-overlay {
   position:absolute; bottom:0; left:0; right:0; padding:16px 12px 12px;
-  background:linear-gradient(transparent,rgba(8,8,26,0.8)); opacity:0; transition:opacity 0.3s;
+  background:linear-gradient(transparent,rgba(0,0,0,0.8)); opacity:0; transition:opacity 0.3s;
 }
 .img-item:hover .img-overlay { opacity:1; }
 .img-item .img-overlay span { font-size:11px; color:#fff; font-weight:500; }
@@ -433,7 +436,7 @@ body::after {
 /* ===== FOOTER ===== */
 .footer {
   text-align:center; padding:80px 60px 60px; position:relative; z-index:1;
-  background:rgba(8,8,26,0.8);
+  background:rgba(0,0,0,0.8);
   backdrop-filter:blur(20px);
   border-top:1px solid rgba(255,255,255,0.04);
 }
@@ -468,8 +471,8 @@ body::after {
   .hero-content-wrap { padding:100px 24px 80px; }
   .hero::before {
     background:
-      linear-gradient(180deg, rgba(8,8,26,0.95) 0%, rgba(8,8,26,0.6) 60%, transparent 100%),
-      linear-gradient(180deg, transparent 70%, rgba(8,8,26,0.95) 100%);
+      linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, transparent 100%),
+      linear-gradient(180deg, transparent 70%, rgba(0,0,0,0.95) 100%);
   }
   .hero-footer { left:24px; right:24px; flex-direction:column; gap:8px; }
 }
@@ -477,6 +480,14 @@ body::after {
   .matrix-grid,.gallery-grid { grid-template-columns:1fr; }
   .img-grid { grid-template-columns:repeat(2,1fr); }
 }
+/* ===== EMPHASIS TEXT COLORS ===== */
+.hl-green { color:var(--hl-green); font-weight:700; }
+.hl-pink { color:var(--hl-pink); font-weight:700; }
+.hl-lime { color:var(--hl-lime); font-weight:700; }
+.hl-blue { color:var(--hl-blue); font-weight:700; }
+.hl-orange { color:var(--hl-orange); font-weight:700; }
+.hl-cyan { color:var(--hl-cyan); font-weight:700; }
+.hl-purple { color:var(--accent-bright); font-weight:700; }
 </style>
 </head>
 <body>
@@ -503,7 +514,7 @@ body::after {
 <!-- 00 HERO -->
 <section class="hero" id="hero">
   <div class="hero-content-wrap">
-    <h1>AIGC TEMPLATE<br>DESIGN REPORT</h1>
+    <h1><span class="hl-green">AIGC</span> TEMPLATE<br><span class="hl-pink">DESIGN</span> REPORT</h1>
     <p class="hero-sub">腾讯元宝 AIGC 效果美学设计实习月报</p>
     <p class="hero-date">MONTHLY REPORT / 2026.05.13 – 06.13</p>
     <div class="hero-name">周星芸</div>
@@ -521,20 +532,20 @@ body::after {
   <div class="section-glow purple" style="top:-100px;right:-200px;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">01 / OVERVIEW</div>
-    <h2 class="sec-title">本月工作结构</h2>
-    <p class="sec-desc">围绕「用户输入照片 → AI 生成风格化效果」核心链路，完成从训练集构建到模板量产的完整工作流。</p>
+    <h2 class="sec-title">本月<span class="hl-green">工作结构</span></h2>
+    <p class="sec-desc">围绕「用户输入照片 → AI 生成<span class="hl-lime">风格化效果</span>」核心链路，完成从训练集构建到模板量产的完整工作流。</p>
   </div>
   <div class="overview-grid">
     <div class="glass-card overview-card fade-up stagger-1" onclick="scrollToSection('lora-detail')">
       <div class="oc-num">WORK 01</div>
-      <h3>LoRA 插画风格训练集探索</h3>
-      <p>实习初期的快速上手任务，通过 AI 生成与风格筛选，完成插画师风格 LoRA 训练集素材构建，为后续 AIGC 图像风格控制建立基础认知。</p>
+      <h3><span class="hl-purple">LoRA</span> 插画风格训练集探索</h3>
+      <p>实习初期的快速上手任务，通过 AI 生成与<span class="hl-green">风格筛选</span>，完成插画师风格 LoRA 训练集素材构建，为后续 AIGC 图像风格控制建立基础认知。</p>
       <div class="oc-tags"><span>风格一致性</span><span>训练集构建</span><span>批量生成</span></div>
     </div>
     <div class="glass-card overview-card fade-up stagger-2" onclick="scrollToSection('gallery')">
       <div class="oc-num">WORK 02</div>
-      <h3>腾讯元宝 AI 玩法模板效果设计</h3>
-      <p>围绕腾讯元宝端内用户与端外年轻化传播需求，持续产出可被用户复用的 AI 图片玩法模板。工作覆盖创意洞察、描述词设计、输入图控制、封面筛选、审美优化、热点响应与数据验证。</p>
+      <h3>腾讯元宝 AI <span class="hl-pink">玩法模板</span>效果设计</h3>
+      <p>围绕腾讯元宝端内用户与端外年轻化传播需求，持续产出可被用户复用的 AI 图片玩法模板。工作覆盖<span class="hl-blue">创意洞察</span>、描述词设计、输入图控制、封面筛选、<span class="hl-orange">审美优化</span>、热点响应与数据验证。</p>
       <div class="oc-tags"><span>Prompt 工程</span><span>双圈层运营</span><span>8 大品类</span></div>
     </div>
   </div>
@@ -545,14 +556,14 @@ body::after {
   <div class="section-glow blue" style="top:0;left:-150px;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">02 / PROBLEM FRAMING</div>
-    <h2 class="sec-title">AI 玩法模板的<br>双重目标</h2>
-    <p class="sec-desc">先讲清楚「为什么要做这些模板」，让产出从「做图」升维为「解决业务问题」。</p>
+    <h2 class="sec-title">AI 玩法模板的<br><span class="hl-pink">双重目标</span></h2>
+    <p class="sec-desc">先讲清楚「为什么要做这些模板」，让产出从「做图」升维为「<span class="hl-green">解决业务问题</span>」。</p>
   </div>
   <div class="dual-grid">
     <div class="glass-card dual-card fade-up stagger-1">
       <div class="dc-tag">A. 端内存量用户</div>
-      <h4>留存驱动的精致写真需求</h4>
-      <p>年龄偏成熟，对「写真」「古风」「节日祝福」「家庭情感」类内容接受度更高。更关注「像不像自己」「好不好看」「能不能发朋友圈」。</p>
+      <h4><span class="hl-blue">留存驱动</span>的精致写真需求</h4>
+      <p>年龄偏成熟，对「写真」「古风」「节日祝福」「家庭情感」类内容接受度更高。更关注「<span class="hl-pink">像不像自己</span>」「好不好看」「能不能发朋友圈」。</p>
       <ul>
         <li>低门槛获得精致、体面、可分享的 AI 写真</li>
         <li>偏好古风、节日、家庭情感等熟悉题材</li>
@@ -561,8 +572,8 @@ body::after {
     </div>
     <div class="glass-card dual-card fade-up stagger-2">
       <div class="dc-tag">B. 端外年轻用户</div>
-      <h4>拉新驱动的风格化传播需求</h4>
-      <p>更关注新鲜感、风格化、社媒传播性。喜欢视觉强、概念新、能表达个性的模板。对 AI 油腻感更敏感。</p>
+      <h4><span class="hl-green">拉新驱动</span>的风格化传播需求</h4>
+      <p>更关注<span class="hl-lime">新鲜感</span>、风格化、社媒传播性。喜欢视觉强、概念新、能表达个性的模板。对 AI 油腻感更敏感。</p>
       <ul>
         <li>需要「有风格、有态度、有传播点」的视觉内容</li>
         <li>差异化创意与新鲜玩法是传播锚点</li>
@@ -571,7 +582,7 @@ body::after {
     </div>
   </div>
   <div class="problem-core fade-up">
-    <h3>如何在「存量用户喜欢」与「年轻用户愿意传播」之间找到审美平衡？</h3>
+    <h3>如何在「<span class="hl-blue">存量用户喜欢</span>」与「<span class="hl-green">年轻用户愿意传播</span>」之间找到<span class="hl-pink">审美平衡</span>？</h3>
     <p>这一命题贯穿本月全部模板设计工作，也是分类策略与审美校准的核心依据。</p>
   </div>
 </section>
@@ -581,13 +592,13 @@ body::after {
   <div class="section-glow warm" style="top:50%;right:-100px;transform:translateY(-50%);"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">03 / STRATEGY MATRIX</div>
-    <h2 class="sec-title">AI 玩法模板<br>设计矩阵</h2>
+    <h2 class="sec-title">AI 玩法模板<br><span class="hl-lime">设计矩阵</span></h2>
     <p class="sec-desc">将模板设计拆为四个维度，建立可复用的评估与决策框架。</p>
   </div>
   <div class="matrix-grid">
     <div class="glass-card matrix-card fade-up stagger-1">
       <div class="mc-num">01</div>
-      <h4>用户匹配度</h4>
+      <h4><span class="hl-green">用户匹配度</span></h4>
       <p>这个模板是给谁玩的？中年写真用户、年轻社媒用户、节日热点用户，还是泛娱乐用户？</p>
       <div class="matrix-detail"><div class="matrix-detail-inner">
         在模板立项阶段即明确目标人群画像，通过风格符号、色彩倾向与构图语境预判用户接受度。端内用户偏好低理解成本的传统美学升级，端外用户需要强差异化的视觉锚点。
@@ -595,7 +606,7 @@ body::after {
     </div>
     <div class="glass-card matrix-card fade-up stagger-2">
       <div class="mc-num">02</div>
-      <h4>视觉吸引力</h4>
+      <h4><span class="hl-pink">视觉吸引力</span></h4>
       <p>封面能不能一眼抓住用户？构图、色彩、人物状态、氛围感是否够强？</p>
       <div class="matrix-detail"><div class="matrix-detail-inner">
         封面是模板的第一层转化。筛选标准不仅包括画面完成度，也包括人群匹配、缩略图识别度、情绪感染力与玩法预期清晰度。
@@ -603,7 +614,7 @@ body::after {
     </div>
     <div class="glass-card matrix-card fade-up stagger-3">
       <div class="mc-num">03</div>
-      <h4>生成稳定性</h4>
+      <h4><span class="hl-blue">生成稳定性</span></h4>
       <p>用户上传自己的照片后，能不能稳定生成类似效果？脸部、姿态、服饰、背景是否容易失控？</p>
       <div class="matrix-detail"><div class="matrix-detail-inner">
         高质量输入图是降低 AI 油腻感的第一道阈值。通过控制光线方向、面部角度、背景复杂度，确保生成结果的稳定性与审美上限。
@@ -611,7 +622,7 @@ body::after {
     </div>
     <div class="glass-card matrix-card fade-up stagger-4">
       <div class="mc-num">04</div>
-      <h4>传播潜力</h4>
+      <h4><span class="hl-orange">传播潜力</span></h4>
       <p>它是否适合发朋友圈、小红书、社群？有没有节日、身份、情绪、潮流标签？</p>
       <div class="matrix-detail"><div class="matrix-detail-inner">
         传播价值 = 情绪共鸣 × 视觉差异度 × 社媒适配性。热点响应型模板依赖时效性，风格化模板依赖长期审美沉淀。
@@ -625,37 +636,37 @@ body::after {
   <div class="section-glow purple" style="top:-80px;left:30%;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">04 / WORKFLOW</div>
-    <h2 class="sec-title">从创意到上线<br>一个 AI 模板的生产链路</h2>
+    <h2 class="sec-title">从创意到上线<br>一个 AI 模板的<span class="hl-green">生产链路</span></h2>
     <p class="sec-desc">把真实产出包装成专业流程，展示完整的方法论闭环。</p>
   </div>
   <div class="workflow-timeline">
     <div class="workflow-step fade-up">
       <div class="ws-num">STEP 01</div>
-      <h4>Trend Scan · 热点与创意扫描</h4>
+      <h4>Trend Scan · <span class="hl-lime">热点与创意扫描</span></h4>
       <p>关注节日节点（高考、父亲节、毕业季），观察社媒流行趋势（写真风格、头像玩法、壁纸风格），判断传播价值与品类匹配度。</p>
       <div class="workflow-tags"><span>毕业季</span><span>父亲节</span><span>古风写真</span><span>社媒趋势</span></div>
     </div>
     <div class="workflow-step fade-up">
       <div class="ws-num">STEP 02</div>
-      <h4>Prompt Design · 描述词设计</h4>
+      <h4>Prompt Design · <span class="hl-pink">描述词设计</span></h4>
       <p>将视觉目标拆解为人物、服装、场景、光影、镜头、材质、氛围、风格关键词，通过多轮生成验证描述词的稳定性与输出质量。</p>
       <div class="workflow-tags"><span>人物主体</span><span>场景环境</span><span>光影氛围</span><span>风格控制</span><span>负面规避</span></div>
     </div>
     <div class="workflow-step fade-up">
       <div class="ws-num">STEP 03</div>
-      <h4>Input Image Control · 输入图控制</h4>
+      <h4>Input Image Control · <span class="hl-blue">输入图控制</span></h4>
       <p>不仅关注最终生成图，也主动控制模拟用户输入图的基础质量。通过更干净的面部结构、自然光影、清晰五官、合理姿态，提高生成结果的稳定性与审美上限。</p>
       <div class="workflow-tags"><span>面部结构</span><span>自然光影</span><span>合理姿态</span><span>去 AI 感</span></div>
     </div>
     <div class="workflow-step fade-up">
       <div class="ws-num">STEP 04</div>
-      <h4>Cover Selection · 封面筛选</h4>
+      <h4>Cover Selection · <span class="hl-orange">封面筛选</span></h4>
       <p>封面不是单张好看图片，而是用户点击模板的第一转化入口。筛选标准包括：第一眼吸引力、人像完成度、风格辨识度、点击转化潜力。</p>
       <div class="workflow-tags"><span>第一眼吸引</span><span>人像完成度</span><span>风格辨识度</span><span>转化潜力</span></div>
     </div>
     <div class="workflow-step fade-up">
       <div class="ws-num">STEP 05</div>
-      <h4>Online Validation · 数据验证</h4>
+      <h4>Online Validation · <span class="hl-cyan">数据验证</span></h4>
       <p>通过上线后的用户数据反馈，验证不同风格模板在端内与端外场景中的接受度。高表现模板为后续玩法提供可复用经验。</p>
       <div class="workflow-tags"><span>端内留存</span><span>端外传播</span><span>A/B 验证</span><span>审美校准</span></div>
     </div>
@@ -667,7 +678,7 @@ body::after {
   <div class="section-glow blue" style="bottom:-100px;right:-150px;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">05 / HERO CASES</div>
-    <h2 class="sec-title">高表现模板<br>案例复盘</h2>
+    <h2 class="sec-title"><span class="hl-pink">高表现模板</span><br>案例复盘</h2>
     <p class="sec-desc">结合数据反馈与审美判断，记录四个不同方向的实践探索。</p>
   </div>
   <div class="cases-grid">
@@ -677,7 +688,7 @@ body::after {
       </div>
       <div class="case-info">
         <h4>蜡笔涂鸦</h4>
-        <p>该模板在同期玩法中取得领先数据表现，说明其视觉风格同时具备端内用户接受度与端外传播潜力。以蜡笔肌理+高饱和色彩打破 AI 油腻感，画面在人物状态、光影氛围与风格辨识度上形成较强的第一眼吸引力。</p>
+        <p>该模板在同期玩法中取得<span class="hl-green">领先数据表现</span>，说明其视觉风格同时具备端内用户接受度与端外传播潜力。以蜡笔肌理+高饱和色彩打破 <span class="hl-pink">AI 油腻感</span>，画面在人物状态、光影氛围与风格辨识度上形成较强的第一眼吸引力。</p>
         <div class="case-meta"><span>童趣破圈</span><span>去 AI 感</span><span>社交货币</span></div>
       </div>
     </div>
@@ -687,7 +698,7 @@ body::after {
       </div>
       <div class="case-info">
         <h4>摩登长辈祝福</h4>
-        <p>该模板的优势不在于单纯堆叠视觉元素，而在于通过更克制的构图、统一的色彩关系与更自然的人像质感，降低了常见 AI 生成图的油腻感。证明了 AI 写真模板可以通过更高级的审美控制提升用户信任感。</p>
+        <p>该模板的优势不在于单纯堆叠视觉元素，而在于通过更克制的构图、统一的色彩关系与更自然的人像质感，降低了常见 AI 生成图的油腻感。证明了 AI 写真模板可以通过更<span class="hl-blue">高级的审美控制</span>提升用户信任感。</p>
         <div class="case-meta"><span>复古新编</span><span>情怀杀</span><span>端内高留存</span></div>
       </div>
     </div>
@@ -697,7 +708,7 @@ body::after {
       </div>
       <div class="case-info">
         <h4>银蝶赛博妆</h4>
-        <p>银色金属质感+蝶翼元素+赛博妆容，尝试将 Y2K 视觉符号融入模板设计。在端外场景中达到了审美与生成质量的平衡，也获得了较为理想的玩法点击率，为年轻化模板积累了一些可参考的视觉经验。</p>
+        <p>银色金属质感+蝶翼元素+赛博妆容，尝试将 <span class="hl-lime">Y2K 视觉符号</span>融入模板设计。在端外场景中达到了审美与生成质量的平衡，也获得了较为理想的<span class="hl-orange">玩法点击率</span>，为年轻化模板积累了一些可参考的视觉经验。</p>
         <div class="case-meta"><span>风格穿透</span><span>Y2K</span><span>端外拉新</span></div>
       </div>
     </div>
@@ -707,7 +718,7 @@ body::after {
       </div>
       <div class="case-info">
         <h4>星荷锦</h4>
-        <p>东方美学意象+诗意构图+温润色彩，精准击中端内成熟用户的文化认同与审美舒适区。在传统题材中做质感升级，避免落入低质 AI 感与传统影楼风之间的审美断层。</p>
+        <p><span class="hl-cyan">东方美学意象</span>+诗意构图+温润色彩，精准击中端内成熟用户的<span class="hl-pink">文化认同</span>与审美舒适区。在传统题材中做质感升级，避免落入低质 AI 感与传统影楼风之间的审美断层。</p>
         <div class="case-meta"><span>东方美学</span><span>质感升级</span><span>文化认同</span></div>
       </div>
     </div>
@@ -719,7 +730,7 @@ body::after {
   <div class="section-glow purple" style="top:20%;left:-200px;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">06 / TEMPLATE GALLERY</div>
-    <h2 class="sec-title">模板分类展厅</h2>
+    <h2 class="sec-title">模板<span class="hl-green">分类展厅</span></h2>
     <p class="sec-desc">覆盖 8 大品类的完整模板矩阵。<span style="color:var(--text);font-weight:700;">▼ 点击下方卡片</span>展开查看每个类别的全部作品。</p>
   </div>
   <div class="gallery-grid" id="galleryGrid"></div>
@@ -731,8 +742,8 @@ body::after {
   <div class="section-glow warm" style="top:10%;right:-100px;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">07 / INPUT IMAGE QUALITY</div>
-    <h2 class="sec-title">高质量输入图<br>是优质模板的起点</h2>
-    <p class="sec-desc">输入图质量直接决定 AI 生成结果的审美上限。自然的光影、清晰的面部结构、合理的姿态角度，是降低 AI 油腻感、提升生成真实感的第一道门槛。每一张模板封面背后，都始于一次对输入图的精心筛选与控制。</p>
+    <h2 class="sec-title"><span class="hl-blue">高质量输入图</span><br>是优质模板的起点</h2>
+    <p class="sec-desc">输入图质量直接决定 AI 生成结果的<span class="hl-lime">审美上限</span>。自然的光影、清晰的面部结构、合理的姿态角度，是降低 <span class="hl-pink">AI 油腻感</span>、提升生成真实感的第一道门槛。每一张模板封面背后，都始于一次对输入图的精心筛选与控制。</p>
     <p style="margin-top:16px;font-size:13px;color:var(--text-dim);display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:rgba(123,104,174,0.1);border:1px solid rgba(123,104,174,0.2);border-radius:100px;backdrop-filter:blur(8px);">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       <span>以下输入图均由 AI 生成，用于模拟用户上传图片的基础质量</span>
@@ -746,34 +757,34 @@ body::after {
   <div class="section-glow blue" style="bottom:0;left:40%;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">08 / DESIGN TAKEAWAYS</div>
-    <h2 class="sec-title">阶段性方法沉淀</h2>
+    <h2 class="sec-title">阶段性<span class="hl-orange">方法沉淀</span></h2>
     <p class="sec-desc">让产出沉淀为可复用的认知资产与方法论。</p>
   </div>
   <div class="reflection-grid">
     <div class="glass-card ref-card fade-up stagger-1">
       <div class="ref-num">01</div>
-      <h4>AI 模板不是「生成好看的图」，而是设计一个可复用的用户玩法</h4>
+      <h4>AI 模板不是「生成好看的图」，而是设计一个<span class="hl-green">可复用的用户玩法</span></h4>
       <p>需要同时考虑用户上传门槛、生成稳定性、封面吸引力与结果可分享性。单张精美不等于一个好模板。</p>
     </div>
     <div class="glass-card ref-card fade-up stagger-2">
       <div class="ref-num">02</div>
-      <h4>审美判断需要和业务目标绑定</h4>
+      <h4><span class="hl-pink">审美判断</span>需要和业务目标绑定</h4>
       <p>面向端内用户时，在熟悉题材中做质感升级；面向年轻用户时，在风格、概念和传播语境上做创新。没有放之四海而皆准的「好看」。</p>
     </div>
     <div class="glass-card ref-card fade-up stagger-3">
       <div class="ref-num">03</div>
-      <h4>输入图质量会直接影响模板上限</h4>
+      <h4><span class="hl-blue">输入图质量</span>会直接影响模板上限</h4>
       <p>高质量、自然、结构清晰的输入图能够有效提升生成结果的稳定性，减少 AI 油腻感和失真问题。输入图控制是第一道审美门槛。</p>
     </div>
     <div class="glass-card ref-card fade-up stagger-4">
       <div class="ref-num">04</div>
-      <h4>封面是模板的第一层转化</h4>
+      <h4><span class="hl-lime">封面</span>是模板的第一层转化</h4>
       <p>一个好的封面需要同时承担审美展示、玩法说明和点击吸引三重功能。缩略图识别度与情绪感染力同等重要。</p>
     </div>
     <div class="glass-card ref-card fade-up" style="grid-column:1/-1;">
       <div class="ref-num">05</div>
-      <h4>数据反馈可以反向校准审美方向</h4>
-      <p>高表现模板为后续玩法提供了可复用经验：明确人群、清晰风格、稳定生成、强封面表达，是提高模板表现的重要基础。审美直觉需要通过数据不断验证和迭代。</p>
+      <h4><span class="hl-orange">数据反馈</span>可以反向校准审美方向</h4>
+      <p>高表现模板为后续玩法提供了可复用经验：明确人群、清晰风格、稳定生成、强封面表达，是提高模板表现的重要基础。<span class="hl-cyan">审美直觉</span>需要通过数据不断验证和迭代。</p>
     </div>
   </div>
   <div style="text-align:center; margin-top:64px;" class="fade-up">
@@ -789,7 +800,7 @@ body::after {
   <div class="section-glow purple" style="top:-50px;right:20%;"></div>
   <div class="sec-header fade-up">
     <div class="sec-label">WORK 01 / LORA TRAINING</div>
-    <h2 class="sec-title">LORA 插画风格训练集</h2>
+    <h2 class="sec-title"><span class="hl-purple">LORA</span> 插画风格训练集</h2>
     <p class="sec-desc">183 张生成图 · 风格锚定 · 批量变体 · 配色打散排列</p>
   </div>
   <div class="img-grid" id="loraGrid"></div>
